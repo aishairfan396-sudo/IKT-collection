@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Order Confirmed | IKT Collection</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+
+    <style>
+
+        .success-page {
+            min-height: 100vh;
+            padding: 150px 20px 80px;
+            background: #faf8f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .success-box {
+            max-width: 650px;
+            width: 100%;
+            background: #fff;
+            padding: 60px 40px;
+            text-align: center;
+            border: 1px solid #eee;
+            box-shadow: 0 15px 45px rgba(0,0,0,0.06);
+        }
+
+        .success-icon {
+            width: 75px;
+            height: 75px;
+            margin: 0 auto 25px;
+            border-radius: 50%;
+            background: #9b7355;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 35px;
+        }
+
+        .success-box h1 {
+            font-family: "Playfair Display", serif;
+            font-size: 42px;
+            color: #222;
+            margin-bottom: 15px;
+        }
+
+        .success-box p {
+            color: #777;
+            line-height: 1.8;
+            font-size: 15px;
+            margin-bottom: 10px;
+        }
+
+        .order-message {
+            margin: 25px 0;
+            padding: 20px;
+            background: #faf8f5;
+        }
+
+        .order-message strong {
+            color: #222;
+        }
+
+        .success-buttons {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .success-btn {
+            display: inline-block;
+            padding: 14px 28px;
+            background: #9b7355;
+            color: white;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            transition: 0.3s;
+        }
+
+        .success-btn:hover {
+            background: #222;
+        }
+
+        .success-btn.secondary {
+            background: #222;
+        }
+
+        .success-btn.secondary:hover {
+            background: #9b7355;
+        }
+
+
+        @media (max-width: 600px) {
+
+            .success-page {
+                padding: 120px 15px 50px;
+            }
+
+            .success-box {
+                padding: 45px 25px;
+            }
+
+            .success-box h1 {
+                font-size: 32px;
+            }
+
+            .success-icon {
+                width: 65px;
+                height: 65px;
+                font-size: 30px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- NAVBAR -->
+
+    <header>
+
+        <nav>
+
+            <div class="logo">
+                IKT <span>Collection</span>
+            </div>
+
+            <div class="nav-links">
+
+                <a href="index.html">Home</a>
+
+                <a href="index.html#categories">Categories</a>
+
+                <a href="index.html#new-arrivals">New Arrivals</a>
+
+                <a href="index.html#about">About</a>
+
+                <a href="index.html#contact">Contact</a>
+
+            </div>
+
+            <div class="nav-icons">
+
+                <button
+                    class="cart-icon"
+                    onclick="window.location.href='cart.html'"
+                >
+                    🛒
+                </button>
+
+            </div>
+
+        </nav>
+
+    </header>
+
+
+    <!-- SUCCESS PAGE -->
+
+    <main class="success-page">
+
+        <div class="success-box">
+
+            <div class="success-icon">
+                ✓
+            </div>
+
+
+            <h1>
+                Order Confirmed!
+            </h1>
+
+
+            <p>
+                Thank you for shopping with
+                <strong>IKT Collection</strong>.
+            </p>
+
+
+            <p>
+                Your order has been successfully received.
+                We will contact you soon to confirm your delivery details.
+            </p>
+
+
+            <div class="order-message">
+
+                <p>
+                    <strong>Payment Method:</strong>
+                    Cash on Delivery
+                </p>
+
+                <p>
+                    Your order will be delivered to the address
+                    provided during checkout.
+                </p>
+
+            </div>
+
+
+            <div class="success-buttons">
+
+                <a
+                    href="index.html"
+                    class="success-btn"
+                >
+                    CONTINUE SHOPPING
+                </a>
+
+
+                <a
+                    href="index.html#contact"
+                    class="success-btn secondary"
+                >
+                    CONTACT US
+                </a>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <p>
+            © 2026 IKT Collection. All Rights Reserved.
+        </p>
+
+    </footer>
+
+
+</body>
+
+</html>

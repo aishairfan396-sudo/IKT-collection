@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Checkout | IKT Collection</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+
+    <style>
+
+        .checkout-page {
+            padding: 140px 6% 80px;
+            background: #faf8f5;
+            min-height: 100vh;
+        }
+
+        .checkout-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .checkout-title h1 {
+            font-family: "Playfair Display", serif;
+            font-size: 45px;
+            color: #222;
+            margin-bottom: 10px;
+        }
+
+        .checkout-title p {
+            color: #777;
+            font-size: 15px;
+        }
+
+        .checkout-container {
+            max-width: 1150px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 40px;
+        }
+
+        .checkout-box,
+        .order-box {
+            background: #fff;
+            padding: 35px;
+            border: 1px solid #eee;
+            box-shadow: 0 10px 35px rgba(0,0,0,0.05);
+        }
+
+        .checkout-box h2,
+        .order-box h2 {
+            font-family: "Playfair Display", serif;
+            font-size: 25px;
+            margin-bottom: 25px;
+            color: #222;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            color: #333;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 14px 15px;
+            border: 1px solid #ddd;
+            outline: none;
+            font-family: "Poppins", sans-serif;
+            font-size: 14px;
+            background: #fff;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            border-color: #9b7355;
+        }
+
+        .form-group textarea {
+            height: 110px;
+            resize: vertical;
+        }
+
+        .order-items {
+            margin-bottom: 25px;
+        }
+
+        .order-item {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+            font-size: 14px;
+        }
+
+        .order-item-name {
+            color: #333;
+        }
+
+        .order-item-price {
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            color: #555;
+            font-size: 14px;
+        }
+
+        .summary-total {
+            display: flex;
+            justify-content: space-between;
+            border-top: 1px solid #ddd;
+            margin-top: 15px;
+            padding-top: 20px;
+            font-size: 20px;
+            font-weight: 600;
+            color: #222;
+        }
+
+        .payment-box {
+            margin-top: 30px;
+            padding: 18px;
+            background: #faf8f5;
+            border: 1px solid #eee;
+        }
+
+        .payment-box h3 {
+            font-size: 16px;
+            margin-bottom: 8px;
+        }
+
+        .payment-box p {
+            font-size: 13px;
+            color: #777;
+            line-height: 1.6;
+        }
+
+        .place-order-btn {
+            width: 100%;
+            margin-top: 25px;
+            padding: 16px;
+            border: none;
+            background: #9b7355;
+            color: white;
+            font-family: "Poppins", sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .place-order-btn:hover {
+            background: #222;
+        }
+
+        .back-cart {
+            display: inline-block;
+            margin-top: 20px;
+            color: #9b7355;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .back-cart:hover {
+            text-decoration: underline;
+        }
+
+        .empty-checkout {
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        .empty-checkout h2 {
+            font-family: "Playfair Display", serif;
+            margin-bottom: 15px;
+        }
+
+        .empty-checkout a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 13px 25px;
+            background: #9b7355;
+            color: white;
+            text-decoration: none;
+        }
+
+
+        @media (max-width: 800px) {
+
+            .checkout-page {
+                padding: 120px 20px 60px;
+            }
+
+            .checkout-title h1 {
+                font-size: 34px;
+            }
+
+            .checkout-container {
+                grid-template-columns: 1fr;
+            }
+
+            .checkout-box,
+            .order-box {
+                padding: 25px;
+            }
+
+        }
+
+
+        @media (max-width: 500px) {
+
+            .checkout-title h1 {
+                font-size: 29px;
+            }
+
+            .checkout-box,
+            .order-box {
+                padding: 20px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- NAVBAR -->
+
+    <header>
+
+        <nav>
+
+            <div class="logo">
+                IKT <span>Collection</span>
+            </div>
+
+            <div class="nav-links">
+
+                <a href="index.html">Home</a>
+
+                <a href="index.html#categories">Categories</a>
+
+                <a href="index.html#new-arrivals">New Arrivals</a>
+
+                <a href="index.html#about">About</a>
+
+                <a href="index.html#contact">Contact</a>
+
+            </div>
+
+            <div class="nav-icons">
+
+                <button class="cart-icon" onclick="window.location.href='cart.html'">
+                    🛒
+                </button>
+
+            </div>
+
+        </nav>
+
+    </header>
+
+
+
+    <!-- CHECKOUT -->
+
+    <main class="checkout-page">
+
+        <div class="checkout-title">
+
+            <h1>Checkout</h1>
+
+            <p>Complete your details to place your order</p>
+
+        </div>
+
+
+        <div id="checkoutContent">
+
+            <div class="checkout-container">
+
+
+                <!-- CUSTOMER DETAILS -->
+
+                <div class="checkout-box">
+
+                    <h2>Customer Information</h2>
+
+
+                    <form id="checkoutForm">
+
+
+                        <div class="form-group">
+
+                            <label for="fullName">
+                                Full Name
+                            </label>
+
+                            <input
+                                type="text"
+                                id="fullName"
+                                placeholder="Enter your full name"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="phone">
+                                Phone Number
+                            </label>
+
+                            <input
+                                type="tel"
+                                id="phone"
+                                placeholder="03XX XXXXXXX"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="email">
+                                Email Address
+                            </label>
+
+                            <input
+                                type="email"
+                                id="email"
+                                placeholder="example@email.com"
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="address">
+                                Delivery Address
+                            </label>
+
+                            <textarea
+                                id="address"
+                                placeholder="Enter your complete delivery address"
+                                required
+                            ></textarea>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="city">
+                                City
+                            </label>
+
+                            <input
+                                type="text"
+                                id="city"
+                                placeholder="Enter your city"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="payment">
+                                Payment Method
+                            </label>
+
+                            <select id="payment">
+
+                                <option value="Cash on Delivery">
+                                    Cash on Delivery
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <button
+                            type="submit"
+                            class="place-order-btn"
+                        >
+                            PLACE ORDER
+                        </button>
+
+
+                    </form>
+
+
+                    <a href="cart.html" class="back-cart">
+                        ← Back to Cart
+                    </a>
+
+                </div>
+
+
+
+                <!-- ORDER SUMMARY -->
+
+                <div class="order-box">
+
+                    <h2>Your Order</h2>
+
+                    <div id="checkoutItems" class="order-items">
+                    </div>
+
+
+                    <div class="summary-row">
+
+                        <span>Subtotal</span>
+
+                        <strong id="checkoutSubtotal">
+                            Rs. 0
+                        </strong>
+
+                    </div>
+
+
+                    <div class="summary-row">
+
+                        <span>Delivery</span>
+
+                        <strong id="checkoutShipping">
+                            Rs. 0
+                        </strong>
+
+                    </div>
+
+
+                    <div class="summary-total">
+
+                        <span>Total</span>
+
+                        <strong id="checkoutTotal">
+                            Rs. 0
+                        </strong>
+
+                    </div>
+
+
+                    <div class="payment-box">
+
+                        <h3>Cash on Delivery</h3>
+
+                        <p>
+                            Pay when your order is delivered to your
+                            provided address.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <p>
+            © 2026 IKT Collection. All Rights Reserved.
+        </p>
+
+    </footer>
+
+
+
+    <script src="script.js"></script>
+
+
+</body>
+
+</html>

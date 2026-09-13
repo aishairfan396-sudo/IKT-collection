@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Product Details | IKT Collection</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+
+    <style>
+
+        .product-details-page {
+            padding: 140px 6% 80px;
+            background: #faf8f5;
+            min-height: 100vh;
+        }
+
+        .product-details-container {
+            max-width: 1150px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .product-detail-image {
+            height: 600px;
+            background: linear-gradient(135deg, #eee8e2, #d8cec5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-detail-image span {
+            font-family: "Playfair Display", serif;
+            font-size: 28px;
+            color: #8a7667;
+            text-align: center;
+        }
+
+        .product-detail-info .product-category {
+            color: #9b7355;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+        }
+
+        .product-detail-info h1 {
+            font-family: "Playfair Display", serif;
+            font-size: 45px;
+            color: #222;
+            margin-bottom: 15px;
+        }
+
+        .product-detail-price {
+            font-size: 25px;
+            font-weight: 600;
+            color: #9b7355;
+            margin-bottom: 25px;
+        }
+
+        .product-description {
+            color: #666;
+            line-height: 1.9;
+            font-size: 15px;
+            margin-bottom: 30px;
+        }
+
+        .product-features {
+            border-top: 1px solid #ddd;
+            border-bottom: 1px solid #ddd;
+            padding: 20px 0;
+            margin-bottom: 30px;
+        }
+
+        .product-features p {
+            margin: 9px 0;
+            font-size: 14px;
+            color: #444;
+        }
+
+        .quantity-title {
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+
+        .quantity-control {
+            display: flex;
+            align-items: center;
+            width: fit-content;
+            border: 1px solid #ddd;
+            margin-bottom: 25px;
+        }
+
+        .quantity-control button {
+            width: 42px;
+            height: 42px;
+            border: none;
+            background: white;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .quantity-control span {
+            width: 45px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .product-buttons {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .product-btn {
+            padding: 15px 28px;
+            border: none;
+            background: #9b7355;
+            color: white;
+            font-family: "Poppins", sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .product-btn:hover {
+            background: #222;
+        }
+
+        .product-btn.secondary {
+            background: #222;
+        }
+
+        .product-btn.secondary:hover {
+            background: #9b7355;
+        }
+
+        .back-products {
+            display: inline-block;
+            margin-top: 25px;
+            color: #9b7355;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .back-products:hover {
+            text-decoration: underline;
+        }
+
+
+        @media (max-width: 850px) {
+
+            .product-details-page {
+                padding: 120px 20px 60px;
+            }
+
+            .product-details-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .product-detail-image {
+                height: 450px;
+            }
+
+            .product-detail-info h1 {
+                font-size: 36px;
+            }
+
+        }
+
+
+        @media (max-width: 500px) {
+
+            .product-detail-image {
+                height: 350px;
+            }
+
+            .product-detail-info h1 {
+                font-size: 30px;
+            }
+
+            .product-detail-price {
+                font-size: 22px;
+            }
+
+            .product-btn {
+                width: 100%;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- NAVBAR -->
+
+    <header>
+
+        <nav>
+
+            <div class="logo">
+                IKT <span>Collection</span>
+            </div>
+
+
+            <div class="nav-links">
+
+                <a href="index.html">Home</a>
+
+                <a href="index.html#categories">Categories</a>
+
+                <a href="index.html#new-arrivals">New Arrivals</a>
+
+                <a href="index.html#about">About</a>
+
+                <a href="index.html#contact">Contact</a>
+
+            </div>
+
+
+            <div class="nav-icons">
+
+                <button
+                    class="cart-icon"
+                    onclick="window.location.href='cart.html'"
+                >
+                    🛒
+                    <small>0</small>
+                </button>
+
+            </div>
+
+        </nav>
+
+    </header>
+
+
+
+    <!-- PRODUCT DETAILS -->
+
+    <main class="product-details-page">
+
+        <div class="product-details-container">
+
+
+            <!-- PRODUCT IMAGE -->
+
+            <div class="product-detail-image">
+
+                <span>
+                    Product Image<br>
+                    Coming Soon
+                </span>
+
+            </div>
+
+
+
+            <!-- PRODUCT INFORMATION -->
+
+            <div class="product-detail-info">
+
+                <div class="product-category">
+                    2 Piece Suit
+                </div>
+
+
+                <h1>
+                    Elegant Lawn Suit
+                </h1>
+
+
+                <div class="product-detail-price">
+                    Rs. 4,999
+                </div>
+
+
+                <p class="product-description">
+
+                    Discover timeless elegance with our
+                    Elegant Lawn Suit. Designed for comfort
+                    and style, this beautiful outfit is perfect
+                    for everyday wear, casual gatherings and
+                    stylish summer looks.
+
+                </p>
+
+
+                <div class="product-features">
+
+                    <p>✓ Premium quality fabric</p>
+
+                    <p>✓ Comfortable everyday wear</p>
+
+                    <p>✓ Elegant modern design</p>
+
+                    <p>✓ Perfect for the summer season</p>
+
+                </div>
+
+
+                <div class="quantity-title">
+                    Quantity
+                </div>
+
+
+                <div class="quantity-control">
+
+                    <button
+                        type="button"
+                        onclick="decreaseQuantity()"
+                    >
+                        −
+                    </button>
+
+                    <span id="quantity">
+                        1
+                    </span>
+
+                    <button
+                        type="button"
+                        onclick="increaseQuantity()"
+                    >
+                        +
+                    </button>
+
+                </div>
+
+
+                <div class="product-buttons">
+
+                    <button
+                        class="product-btn"
+                        onclick="addProductToCart()"
+                    >
+                        ADD TO CART
+                    </button>
+
+
+                    <button
+                        class="product-btn secondary"
+                        onclick="buyNow()"
+                    >
+                        BUY NOW
+                    </button>
+
+                </div>
+
+
+                <a
+                    href="index.html#new-arrivals"
+                    class="back-products"
+                >
+                    ← Back to Products
+                </a>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <p>
+            © 2026 IKT Collection. All Rights Reserved.
+        </p>
+
+    </footer>
+
+
+
+    <script src="script.js"></script>
+
+
+    <script>
+
+        let productQuantity = 1;
+
+
+        function increaseQuantity() {
+
+            productQuantity++;
+
+            document.getElementById("quantity").textContent =
+                productQuantity;
+
+        }
+
+
+        function decreaseQuantity() {
+
+            if (productQuantity > 1) {
+
+                productQuantity--;
+
+            }
+
+            document.getElementById("quantity").textContent =
+                productQuantity;
+
+        }
+
+
+        function addProductToCart() {
+
+            for (let i = 0; i < productQuantity; i++) {
+
+                const fakeButton = document.createElement("button");
+
+                fakeButton.style.display = "none";
+
+                const productCard = document.createElement("div");
+
+                productCard.className = "product-card";
+
+                productCard.innerHTML = `
+
+                    <div class="product-image product-one"></div>
+
+                    <div class="product-category">
+                        2 Piece Suit
+                    </div>
+
+                    <h3>
+                        Elegant Lawn Suit
+                    </h3>
+
+                    <div class="price">
+                        Rs. 4,999
+                    </div>
+
+                `;
+
+                document.body.appendChild(productCard);
+
+                addToCart(fakeButton);
+
+                productCard.remove();
+
+            }
+
+
+            alert("Product added to cart!");
+
+        }
+
+
+        function buyNow() {
+
+            addProductToCart();
+
+            window.location.href = "checkout.html";
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>

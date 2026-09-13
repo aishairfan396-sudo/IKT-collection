@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Shopping Cart | IKT Collection</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+
+        .cart-page {
+            padding: 140px 7% 80px;
+            min-height: 100vh;
+            background: #faf8f5;
+        }
+
+        .cart-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .cart-title p {
+            color: #9b7355;
+            letter-spacing: 4px;
+            font-size: 12px;
+            margin-bottom: 10px;
+        }
+
+        .cart-title h1 {
+            font-family: "Playfair Display", serif;
+            font-size: 48px;
+        }
+
+        .cart-container {
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .cart-items {
+            background: white;
+            padding: 30px;
+        }
+
+        .cart-item {
+            display: grid;
+            grid-template-columns: 100px 1fr auto auto auto;
+            align-items: center;
+            gap: 25px;
+            padding: 20px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .cart-item:last-child {
+            border-bottom: none;
+        }
+
+        .cart-item-image {
+            width: 100px;
+            height: 120px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .cart-item-info h3 {
+            font-family: "Playfair Display", serif;
+            font-size: 20px;
+            margin-bottom: 6px;
+        }
+
+        .cart-item-info p {
+            color: #999;
+            font-size: 12px;
+        }
+
+        .cart-price {
+            font-weight: 600;
+        }
+
+        .quantity-box {
+            display: flex;
+            align-items: center;
+            border: 1px solid #ddd;
+        }
+
+        .quantity-box button {
+            border: none;
+            background: white;
+            width: 32px;
+            height: 32px;
+            font-size: 18px;
+        }
+
+        .quantity-box span {
+            width: 35px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .remove-btn {
+            border: none;
+            background: transparent;
+            color: #9b7355;
+            font-size: 12px;
+        }
+
+        .cart-summary {
+            background: white;
+            margin-top: 25px;
+            padding: 30px;
+            max-width: 450px;
+            margin-left: auto;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+
+        .summary-total {
+            border-top: 1px solid #ddd;
+            padding-top: 18px;
+            margin-top: 18px;
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        .checkout-btn {
+            width: 100%;
+            padding: 15px;
+            margin-top: 20px;
+            border: none;
+            background: #222;
+            color: white;
+            letter-spacing: 2px;
+            cursor: pointer;
+        }
+
+        .checkout-btn:hover {
+            background: #9b7355;
+        }
+
+        .continue-shopping {
+            display: block;
+            text-align: center;
+            margin-top: 25px;
+            color: #9b7355;
+            font-size: 13px;
+        }
+
+        .empty-cart {
+            text-align: center;
+            padding: 70px 20px;
+        }
+
+        .empty-cart h2 {
+            font-family: "Playfair Display", serif;
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        .empty-cart p {
+            color: #777;
+            margin-bottom: 25px;
+        }
+
+        @media (max-width: 700px) {
+
+            .cart-page {
+                padding: 110px 5% 60px;
+            }
+
+            .cart-title h1 {
+                font-size: 38px;
+            }
+
+            .cart-items {
+                padding: 20px;
+            }
+
+            .cart-item {
+                grid-template-columns: 80px 1fr;
+                gap: 15px;
+            }
+
+            .cart-item-image {
+                width: 80px;
+                height: 100px;
+            }
+
+            .cart-price,
+            .quantity-box,
+            .remove-btn {
+                grid-column: 2;
+            }
+
+            .cart-summary {
+                max-width: 100%;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+<header>
+    <nav class="navbar">
+
+        <a href="index.html" class="logo">
+            IKT <span>Collection</span>
+        </a>
+
+        <ul class="nav-links">
+            <li><a href="index.html#home">Home</a></li>
+            <li><a href="index.html#new-arrivals">New Arrivals</a></li>
+            <li><a href="index.html#categories">Categories</a></li>
+            <li><a href="index.html#trending">Trending</a></li>
+            <li><a href="index.html#sale">Sale</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+
+        <div class="nav-icons">
+            <button class="search-icon" onclick="window.location.href='index.html'">⌕</button>
+
+            <button class="cart-icon">
+                🛒 <small id="cartNumber">0</small>
+            </button>
+        </div>
+
+    </nav>
+</header>
+
+
+<section class="cart-page">
+
+    <div class="cart-title">
+        <p>IKT COLLECTION</p>
+        <h1>Your Shopping Cart</h1>
+    </div>
+
+    <div class="cart-container">
+
+        <div id="cartItems" class="cart-items">
+
+            <div class="empty-cart">
+                <h2>Your Cart Is Empty</h2>
+                <p>You haven't added any products yet.</p>
+
+                <a href="index.html#new-arrivals" class="main-btn">
+                    CONTINUE SHOPPING
+                </a>
+            </div>
+
+        </div>
+
+
+        <div class="cart-summary">
+
+            <div class="summary-row">
+                <span>Subtotal</span>
+                <span id="subtotal">Rs. 0</span>
+            </div>
+
+            <div class="summary-row">
+                <span>Shipping</span>
+                <span id="shipping">Rs. 0</span>
+            </div>
+
+            <div class="summary-row summary-total">
+                <span>Total</span>
+                <span id="total">Rs. 0</span>
+            </div>
+
+            <button class="checkout-btn" onclick="window.location.href='checkout.html'">
+    PROCEED TO CHECKOUT
+</button>
+
+            <a href="index.html#new-arrivals" class="continue-shopping">
+                ← Continue Shopping
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<footer>
+
+    <div class="copyright">
+        <p>© 2026 IKT Collection. All Rights Reserved.</p>
+    </div>
+
+</footer>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
